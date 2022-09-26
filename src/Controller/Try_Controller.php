@@ -9,15 +9,18 @@ class TryController
 {
     public function index()
     {
-        var_dump('Does it work ?');
+        dump('Does it work ?');
         die();
     }
 
-    public function try(Request $request)
-    {
-        $yo = $request->attributes->get('age');
-        var_dump($request);
+    /**
+     * @Route("/test/{age</d+>?0}", name="try", methods={"GET", "POST"}, host="localhost", schemes={"http", "https"}) 
+     */
 
-        return new Response("You have " . $yo . " years old :)");
+    public function try(Request $request, $age)
+    {
+        dd($request);
+
+        return new Response("You have " . $age. " years old :)");
     }
 }

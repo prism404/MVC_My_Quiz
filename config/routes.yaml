@@ -1,11 +1,3 @@
 index:
    path: /
    controller: App\Controller\TryController::index
-
-try:
-  path: /try/{age<\d+>?0}
-  controller: App\Controller\TryController::try
-  # defaults: 
-  #   age: 0
-  # requirements:
-  #   age: \d+
