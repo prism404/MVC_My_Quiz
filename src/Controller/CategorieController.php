@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Repository\CategorieRepository;
@@ -14,7 +13,7 @@ class CategorieController extends AbstractController
     #[Route('/categorie', name: 'app_categorie')]
     public function index(CategorieRepository  $repository): Response
     {
-        return $this->render('categorie/categories.html.twig', [
+        return $this->render('categorie/index.html.twig', [
             'categorie' => $repository->findAll(),
         ]);
     }
