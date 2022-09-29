@@ -1,0 +1,40 @@
+{% block stylesheets %}
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+{% endblock %}
+
+
+{% block header %}
+	{% include 'parts/_header.html' %}
+{% endblock %}
+
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+	<section class="h-100 h-custom" style="background-color: rgb(120, 194, 173)">
+		<div class="container h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-lg-8 col-xl-6">
+					<div class="card rounded-3">
+						<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.onisep.fr%2Fvar%2Fonisep%2Fstorage%2Fimages%2Fmedia%2Fimages%2Fpictos-logo-carte-dro-feuilletter-teleecharger%2Fquiz3%2Fquiz-nouvelle-version-2020%2F14096037-2-fre-FR%2Fquiz-nouvelle-version-2020.jpg&f=1&nofb=1&ipt=f629a71c91feea9dde1bb90510aedf4b002f11ae059038ed044a2a4c5d7e7567&ipo=images" class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem; height: 250px;" alt="Sample photo">
+						<div class="card-body p-md-5">
+							{{ form_start(registrationForm) }}
+							{{ form_row(registrationForm.pseudo) }}
+							{{ form_row(registrationForm.email) }}
+							{{ form_row(registrationForm.plainPassword, {
+                                label: 'Password'
+                            }) }}
+							{{ form_row(registrationForm.agreeTerms) }}
+
+							<button type="submit" class="btn">Register</button>
+							{{ form_end(registrationForm) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
