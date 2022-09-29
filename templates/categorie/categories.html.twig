@@ -1,9 +1,12 @@
+
 <section id="mainCategory" class="m-3 p-2 mt-4 d-flex align-items-start flex-column rounded" style="width: 200px; height: 100%; background-color: rgb(120, 194, 173)">
 	<div>
 		<label for="film">Films</label>
 		<input type="checkbox" id="film" class="visually-hidden">
 		<div class="films">
-			<h6></h6>
+			{% for categories in categorie %}
+				<h6>{{categories.name}}</h6>
+			{% endfor %}
 		</div>
 	</div>
 
