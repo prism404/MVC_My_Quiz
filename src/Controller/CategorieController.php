@@ -13,19 +13,8 @@ class CategorieController extends AbstractController
     #[Route('/categorie', name: 'app_categorie')]
     public function index(CategorieRepository  $repository): Response
     {
-<<<<<<< HEAD
         return $this->render('categorie/index.html.twig', [
             'categorie' => $repository->findAll(),
-=======
-        $categorie = $doctrine->getRepository(Categorie::class)->findAll();      
-
-        dd($categorie);
-
-        
-
-        return $this->render('categorie/categories.html.twig', [
-            'categorie' => $categorie,
->>>>>>> parent of dadc8fa... Creation de la page d'inscription
         ]);
     }
 }
