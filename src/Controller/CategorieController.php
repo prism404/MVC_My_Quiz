@@ -11,10 +11,10 @@ class CategorieController extends AbstractController
 {
     
     #[Route('/categorie', name: 'app_categorie')]
-    public function index(CategorieRepository  $repository): Response
+    public function index(CategorieRepository $repository): Response
     {
         return $this->render('categorie/index.html.twig', [
-            'categorie' => $repository->findAll(),
+            'categorie' => $repository,
         ]);
     }
 }
