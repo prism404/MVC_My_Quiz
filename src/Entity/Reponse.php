@@ -24,7 +24,7 @@ class Reponse
     private ?int $reponse_expected = null;
 
     #[ORM\ManyToOne(inversedBy: 'reponses')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(name: "id_question", referencedColumnName: "id")]
     private ?Question $question = null;
 
     public function getId(): ?int

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
-use App\Entity\Question;
 use App\Repository\CategorieRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\ReponseRepository;
@@ -22,23 +21,19 @@ class MainController extends AbstractController
     }
 
     #[Route('/jsonquizz/{id}', name: 'app_quizzlist')]
-    public function show(Categorie $category, CategorieRepository $repository, int $id, QuestionRepository $questionRepo, Question $questions): Response
+    public function show(Categorie $category, CategorieRepository $repository, int $id, QuestionRepository $questionRepo, ReponseRepository $reponseRepo): Response
     {
         $categorie = $repository->find($id);
         $question = $questionRepo->findBy(['id_categorie' => $category]);
-
-        $reponses = $questions->getReponses();
-        foreach ($reponses as $reponse) {
-            dump($reponse);
-        }
-        dd($reponses);
-
+        $reponses = $reponseRepo->findBy(['question' => $question]);
+        //dd($reponses);
         return $this->render(
             'main/index.html.twig',
             [
                 'categorie' => $categorie,
                 'categories' => $repository->findAll(),
                 'questions' => $question,
+                'reponses' => $reponses,
             ]
         );
     }
