@@ -3,10 +3,9 @@
 		<h3>{{ categorie.name }}</h3>
 	</div>
 	<div class="card-body">
-
 		{% for question in questions %}
 
-			<h5 class="card-title mt-2 mb-2">
+			<h5 class="card-title mt-2 mb-2 p-4">
 				{{ question.question }}
 				<br><br>
 				{% block choices %}
@@ -16,6 +15,6 @@
 			</h5>
 
 		{% endfor %}
-		
 	</div>
+	<button type="button" class="btn btn-secondary">Submit</button>
 </div>
