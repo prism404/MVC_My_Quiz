@@ -9,12 +9,12 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello ! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/prism/delivery/symfony/my_quizz/src/Controller/QuestionsController.php'|file_link(0) }}">src/Controller/QuestionsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/prism/delivery/symfony/my_quizz/templates/questions/index.html.twig'|file_link(0) }}">templates/questions/index.html.twig</a></code></li>
-    </ul>
+{% for question in items %}
+    
+{% endfor %}
+    {{ question.question }}
+
 </div>
 {% endblock %}

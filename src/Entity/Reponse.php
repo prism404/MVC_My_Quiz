@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReponsesRepository;
+use App\Repository\ReponseRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReponsesRepository::class)]
-class Reponses
+#[ORM\Entity(repositoryClass: ReponseRepository::class)]
+class Reponse
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -22,6 +22,10 @@ class Reponses
 
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $reponse_expected = null;
+
+    #[ORM\ManyToOne(inversedBy: 'reponses')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Question $question = null;
 
     public function getId(): ?int
     {
@@ -60,6 +64,18 @@ class Reponses
     public function setReponseExpected(int $reponse_expected): self
     {
         $this->reponse_expected = $reponse_expected;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): self
+    {
+        $this->question = $question;
 
         return $this;
     }

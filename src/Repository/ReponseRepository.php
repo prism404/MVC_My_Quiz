@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Reponses;
+use App\Entity\Reponse;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Reponses>
+ * @extends ServiceEntityRepository<Reponse>
  *
- * @method Reponses|null find($id, $lockMode = null, $lockVersion = null)
- * @method Reponses|null findOneBy(array $criteria, array $orderBy = null)
- * @method Reponses[]    findAll()
- * @method Reponses[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Reponse|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Reponse|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Reponse[]    findAll()
+ * @method Reponse[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ReponsesRepository extends ServiceEntityRepository
+class ReponseRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Reponses::class);
+        parent::__construct($registry, Reponse::class);
     }
 
-    public function save(Reponses $entity, bool $flush = false): void
+    public function save(Reponse $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ReponsesRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Reponses $entity, bool $flush = false): void
+    public function remove(Reponse $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

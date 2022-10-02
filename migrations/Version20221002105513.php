@@ -21,6 +21,7 @@ final class Version20221002105513 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE user ADD date_inscription DATETIME DEFAULT NOW()');
+        $this->addSql('DROP TABLE questions');
     }    
 
     public function down(Schema $schema): void

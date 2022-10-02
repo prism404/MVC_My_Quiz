@@ -1,19 +1,19 @@
-<div class="card border-primary mb-3 mt-4 d-flex justify-content-center" style="width: 35rem;">
-	<div class="card-header"> {{ categorie.name }} </div>
+<div class="card border-primary mb-3 mt-4 d-flex justify-content-center" style="width: 55rem;">
+	<div class="card-header">
+		<h3>{{ categorie.name }}</h3>
+	</div>
 	<div class="card-body">
-		<h4 class="card-title mt-2 mb-2">Question</h4>
-		<p class="card-text">
 
-			{% block choices %}
-				{% include "sections/_radio.html.twig" %}
-			{% endblock %}
-
-      <br>
-			<div class="btn-group me-2 mt-4 d-flex justify-content-between" role="group" aria-label="Second group">
-        <div class="col-10"></div>
-				<button type="button" class="btn btn-secondary">Next</button>
-			</div>
-
-		</p>
+		{% for question in questions %}
+			<h5 class="card-title mt-2 mb-2">
+				{{ question.question }}
+				<br><br>
+				{% block choices %}
+					{% include "sections/_radio.html.twig" %}
+				{% endblock %}
+				<br><br>
+			</h5>
+		{% endfor %}
+		<p class="card-text"></p>
 	</div>
 </div>
