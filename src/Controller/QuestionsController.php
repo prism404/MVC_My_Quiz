@@ -23,7 +23,6 @@ class QuestionsController extends AbstractController
     public function show(Questions $questions, ManagerRegistry $doctrine)
     {
         
-
         return $this->render('questions/show.html.twig', [
             'questions' => $questions,
         ]);

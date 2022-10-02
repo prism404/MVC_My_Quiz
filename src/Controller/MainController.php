@@ -13,8 +13,21 @@ class MainController extends AbstractController
     public function index(CategorieRepository $repository): Response
     {
         return $this->render('base.html.twig', [
-            'controller_name' => 'MainController',
             'categories' => $repository->findAll(),
         ]);
+    }
+
+    #[Route('/jsonquizz/{id}', name: 'app_quizzlist')]
+    public function show(CategorieRepository $repository, int $id): Response
+    {
+        $categorie = $repository->find($id);
+
+        return $this->render(
+            'main/index.html.twig',
+            [
+                'categorie' => $categorie,
+                'categories' => $repository->findAll(),
+            ]
+        );
     }
 }
