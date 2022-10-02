@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg"
+    style="background-color: rgb(120, 194, 173); box-shadow: rgba(0, 0, 0, 0.772) 0px 2px 4px 0px, rgba(4, 4, 4, 0.779) 0px 2px 16px 0px;">
+    <section class="container-fluid">
+        <div class="d-flex flex-column">
+            <img class="rounded" src="https://cdn0.iconfinder.com/data/icons/text-file-extensions/100/json-512.png"
+                style="z-index: 1; width: 75px; margin-top: 26px; margin-right: 20px; box-shadow: rgba(0, 0, 0, 0.772) 0px 2px 4px 0px, rgba(4, 4, 4, 0.779) 0px 2px 16px 0px; background-color: rgb(120, 194, 173)">
+            <img src="https://cdn-icons-png.flaticon.com/512/3406/3406811.png"
+                style="width: 95px; position: absolute; margin-left: 10px;">
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item fw-semibold">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_quizz') }}">Home</a>
+                </li>
+                <li class="nav-item fw-semibold">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_profil') }}">Profil</a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% else %}
+                <li class="nav-item fw-semibold">
+                    <a class="nav-link active" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+                {% endif %}
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item fw-semibold">
+                    <a class="nav-link active" href="{{ path('app_settings') }}">Parametres</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <form class="d-flex" role="search">
+            <input class="form-control w-50 me-1" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <div class="d-flex flex-column">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('app_profil') }}">
+                <button class="p-2 mb-2 btn btn-dark btn-sm text-light">
+                    <p style="font-weight: bold;">{{ app.user.pseudo }}</p>
+                </button>
+            </a>
+            {% else %}
+            <a href="{{ path('app_profil') }}">
+                <button class="p-2 mb-2 btn btn-dark btn-sm text-light">
+                    <p style="font-weight: bold;">Guest</p>
+                </button>
+            </a>
+            {% endif %}
+
+            <div class="d-flex flex-row">
+                <i class="fa-brands fa-square-twitter"></i>
+                <i class="fa-brands me-2 ms-2 fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{path('app_logout')}}">Deconexion</a>
+            {% endif %}
+        </div>
+    </section>
+</nav>

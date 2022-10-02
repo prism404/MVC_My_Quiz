@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block nav %}
+<article class="d-flex">
+	<section id="mainCategory" class="p-2 mt-4 d-flex flex-column" style="width: 25%; height: 70vh; overflow-y: auto; margin-right: 3%">
+		<div class="text-light rounded" style="width: 100%; background-color: rgb(120, 194, 173)">
+			<table class="table-dark table">
+				<th class="text-center">Categories</th>
+				{% for categories in categorie %}
+					<table class="table border-dark table-hover text-light" style="box-shadow: rgba(0, 0, 0, 0.222) 0px 2px 4px 0px, rgba(4, 4, 4, 0.229) 0px 2px 16px 0px">
+						<tr class="text-center text-dark" style="font-weight: bold;">
+							<td>{{categories.name}}</td>
+						</tr>
+					</table>
+				{% endfor %}
+			</table>
+		</div>
+	</section>
+
+	<section id="mainCategory" class="p-2 mt-4 d-flex flex-column" style="width: 70%; height: 70vh; overflow-y: auto; ">
+		<div class="text-center text-light rounded" style="width: 100%; background-color: rgb(120, 194, 173)">
+			<p style="margin-top: 25%; margin-bottom: 25%">Emplacement reserver au questions?</p>
+		</div>
+	</section>
+
+</article>
+
+{% endblock nav %}
