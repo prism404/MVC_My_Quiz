@@ -1,15 +1,11 @@
 {% for reponse in reponses %}
 	{% if reponse.getIdQuestion() == question.id %}
+		{% set radio_name = reponse.id %}
 		<div class="btn" aria-label="Basic radio toggle button group">
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
-			<label class="btn btn btn-primary" for="btnradio1">
+			<input type="radio" class="btn-check" name="btnradio" id="{{ radio_name }}" autocomplete="off" checked="">
+			<label class="btn btn-primary" for="{{ radio_name }}">
 				{{ reponse.reponse }}
 			</label><br><br>
-			{# <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
-					  <label class="btn btn btn-primary" for="btnradio2"> {{ reponse.reponse }} </label><br><br>
-					  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="">
-					  <label class="btn btn btn-primary" for="btnradio3"> {{ reponse.reponse }} </label> #}
 		</div>
-    {% endif %}
-	{% endfor %}
-
+	{% endif %}
+{% endfor %}
